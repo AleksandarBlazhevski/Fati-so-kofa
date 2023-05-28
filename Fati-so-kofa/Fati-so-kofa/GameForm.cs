@@ -17,9 +17,9 @@ namespace Fati_so_kofa
    
     public partial class GameForm : Form
     {
-        bool pressedUp, pressedDown, pressedLeft, pressedRight;
+        bool  pressedLeft, pressedRight;
         private Spawner spawner;
-        Player player = new Player(new Point(80, 80), Color.Blue, 5, 40);
+        Player player = new Player(new Point(170, 500), Color.Blue, 7, 40);
         
         public GameForm()
         {
@@ -32,8 +32,6 @@ namespace Fati_so_kofa
             tPlayerMover.Start();
             tShapeSpawner.Start();
 
-            pressedDown = false;
-            pressedUp = false;
             pressedLeft = false;
             pressedRight = false;
             
@@ -49,14 +47,7 @@ namespace Fati_so_kofa
             {
                 pressedRight = false;
             }
-            if (e.KeyCode == Keys.Up)
-            {
-                pressedUp = false;
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                pressedDown = false;
-            }
+
 
         }
 
@@ -66,30 +57,20 @@ namespace Fati_so_kofa
             {
                 if (s.isHit(player.Postiion, player.Size))
                 {
-                    s.Color = Color.Red;
-                }
-                else
-                {
-                    s.Color = Color.Green;
+                    s.Color = Color.White;
                 }
             }
+            spawner.removeDestroyed();
 
-            if (pressedLeft)
+            if (pressedLeft && player.Postiion.X > 0)
             {
                 player.MoveLeft();
             }
-            if (pressedRight)
+            if (pressedRight && player.Postiion.X < 345)
             {
                 player.MoveRight();
             }
-            if (pressedUp)
-            {
-                player.MoveUp();
-            }
-            if (pressedDown)
-            {
-                player.MoveDown();
-            }
+
             Invalidate();
         }
 
@@ -98,16 +79,14 @@ namespace Fati_so_kofa
             spawner.spawnShape();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            spawner.increaseFrequency(1000);
-        }
+
 
         private void GameForm_Paint(object sender, PaintEventArgs e)
         {
 
             spawner.drawAll(e.Graphics);
             player.Draw(e.Graphics);
+            spawner.drawLine(e.Graphics);
         }
 
         private void tShapeMover_Tick(object sender, EventArgs e)
@@ -118,7 +97,6 @@ namespace Fati_so_kofa
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("Key down");
             if (e.KeyCode == Keys.Left) {
                 
                 pressedLeft = true;
@@ -126,14 +104,6 @@ namespace Fati_so_kofa
             if (e.KeyCode == Keys.Right)
             {
                 pressedRight = true;
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                pressedUp = true;
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                pressedDown = true;
             }
         }
     }

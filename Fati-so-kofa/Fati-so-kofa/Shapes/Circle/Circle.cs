@@ -9,10 +9,10 @@ using System.Windows.Forms;
 namespace Fati_so_kofa.Shapes.Circle
 {
     
-    public class Circle : Shape
+    public abstract class Circle : Shape
     {
         //Center point, circle color, movement speed, circle radius
-        public Circle(Point center, Color color, int speed, int size) : base(center, color, speed, size)
+        public Circle(Point center, int speed, int size, int redLine) : base(center, speed, size, redLine)
         {
         }
 
@@ -29,16 +29,7 @@ namespace Fati_so_kofa.Shapes.Circle
             return (cornerDist_sq <= (Size * Size));
         }
 
-        public override void Draw(Graphics g)
-        {
-            Brush b = new SolidBrush(this.Color);
-            g.FillEllipse(b, Center.X, Center.Y, Size * 2, Size * 2);
-            b.Dispose();
-        }
+ 
 
-        public override void Move(int distance)
-        {
-            Center = new Point(Center.X, Center.Y + distance);
-        }
     }
 }

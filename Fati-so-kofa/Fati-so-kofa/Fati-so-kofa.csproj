@@ -61,7 +61,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShapeNotFoundException.cs" />
     <Compile Include="Shapes\Circle\Circle.cs" />
+    <Compile Include="Shapes\Circle\BlueCircle.cs" />
+    <Compile Include="Shapes\Circle\GreenCircle.cs" />
+    <Compile Include="Shapes\Circle\RedCircle.cs" />
     <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Spawner.cs" />
     <EmbeddedResource Include="Form1.resx">
