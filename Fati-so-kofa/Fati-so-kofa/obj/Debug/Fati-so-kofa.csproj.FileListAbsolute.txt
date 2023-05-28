@@ -1,0 +1,12 @@
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\bin\Debug\Fati-so-kofa.exe.config
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\bin\Debug\Fati-so-kofa.exe
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\bin\Debug\Fati-so-kofa.pdb
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.csproj.AssemblyReference.cache
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.csproj.SuggestedBindingRedirects.cache
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati_so_kofa.Form1.resources
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati_so_kofa.Properties.Resources.resources
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.csproj.GenerateResource.cache
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.csproj.CoreCompileInputs.cache
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.exe
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.pdb
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati_so_kofa.GameForm.resources

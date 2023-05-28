@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,13 @@ namespace Fati_so_kofa
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GameForm gameForm = new GameForm();
+            gameForm.Show();
+            this.Hide();
+        }
+
     }
 }
