@@ -38,7 +38,9 @@ namespace Fati_so_kofa
         }
         public void increaseFrequency(int howMuch)
         {
+            
             spawnFrequency-=howMuch;
+            Debug.WriteLine("Increase circle spawnrate. Circles now spawn every: " + spawnFrequency + "ms");
             updateFrequency();
         }
         public void decreaseFrequency(int howMuch)
@@ -48,6 +50,7 @@ namespace Fati_so_kofa
         }
         public void increaseSpeed(int howMuch)
         {
+            Debug.WriteLine("Speed increase to :" + shapeSpeed);
             shapeSpeed += howMuch;
         }
         public void decreaseSpeed(int howMuch)
@@ -114,9 +117,10 @@ namespace Fati_so_kofa
             g.DrawLine(p, 0, redLine, 400, redLine);
             p.Dispose();
         }
+        //Remove circles colored white or below window
         public void removeDestroyed()
         {
-            ShapesList.RemoveAll(r => r.Color == Color.White);
+            ShapesList.RemoveAll(r => r.Color == Color.White || r.Center.Y >= 650);
         }
     }
 }

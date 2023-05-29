@@ -17,9 +17,10 @@ namespace Fati_so_kofa
    
     public partial class GameForm : Form
     {
-        bool  pressedLeft, pressedRight;
+        bool pressedLeft, pressedRight;
         private Spawner spawner;
-        Player player = new Player(new Point(170, 500), Color.Blue, 7, 40);
+        private ScoreManager scoreManager;
+        Player player = new Player(new Point(170, 500), Color.Blue, 10, 40);
         
         public GameForm()
         {
@@ -28,6 +29,7 @@ namespace Fati_so_kofa
             
 
             spawner = new Spawner(tShapeSpawner);
+            scoreManager = new ScoreManager(lScore);
             tShapeMover.Start();
             tPlayerMover.Start();
             tShapeSpawner.Start();
@@ -57,7 +59,17 @@ namespace Fati_so_kofa
             {
                 if (s.isHit(player.Postiion, player.Size))
                 {
+                    if(player.Color == s.Color)
+                    {
+                        scoreManager.addPoint();
+                        player.changeColor();
+                    }
+                    else
+                    {
+                        scoreManager.removePoint();
+                    }
                     s.Color = Color.White;
+                    
                 }
             }
             spawner.removeDestroyed();
@@ -76,6 +88,14 @@ namespace Fati_so_kofa
 
         private void tShapeSpawner_Tick(object sender, EventArgs e)
         {
+            if (scoreManager.timeToSpeedUp())
+            {
+                spawner.increaseSpeed(1);
+            }
+            if (scoreManager.timeToRespawnFaster())
+            {
+                spawner.increaseFrequency(100);
+            }
             spawner.spawnShape();
         }
 

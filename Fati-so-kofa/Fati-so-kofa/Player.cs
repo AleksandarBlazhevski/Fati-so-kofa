@@ -36,13 +36,20 @@ namespace Fati_so_kofa
         {
             Postiion = new Point(Postiion.X + Speed, Postiion.Y);
         }
-        public void MoveUp()
+        public void changeColor()
         {
-            Postiion = new Point(Postiion.X, Postiion.Y - Speed);
-        }
-        public void MoveDown()
-        {
-            Postiion = new Point(Postiion.X, Postiion.Y + Speed);
+            if(Color == Color.Red)
+            {
+                Color = Color.Green;
+            }
+            else if(Color == Color.Green)
+            {
+                Color = Color.Blue;
+            }
+            else if(Color == Color.Blue)
+            {
+                Color = Color.Red;
+            }
         }
     }
 }
