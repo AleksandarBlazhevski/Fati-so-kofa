@@ -17,6 +17,9 @@ namespace Fati_so_kofa
         private int shapeSpeed;
         private int spawnFrequency;
         private Timer spawnTimer;
+        private Label shapesSpeedLabel;
+        private Label shapeRespawnLabel;
+
         private int redLine;
         private Random randomLinePicker;
         private Random randomRed;
@@ -25,7 +28,7 @@ namespace Fati_so_kofa
         private readonly int SecoundLine = 170;
         private readonly int ThirdLine = 330;
 
-        public Spawner(Timer spawnTimer)
+        public Spawner(Timer spawnTimer, Label shapesSpeedLabel, Label shapeRespawnLabel)
         {
             ShapesList = new List<Shape>();
             spawnFrequency = 2000;
@@ -35,6 +38,9 @@ namespace Fati_so_kofa
             redLine = 300;
             this.spawnTimer = spawnTimer;
             updateFrequency();
+            this.shapesSpeedLabel = shapesSpeedLabel;
+            this.shapeRespawnLabel = shapeRespawnLabel;
+            updateShapesInfo();
         }
         public void increaseFrequency(int howMuch)
         {
@@ -43,8 +49,8 @@ namespace Fati_so_kofa
                 return;
             }
             spawnFrequency-=howMuch;
-            Debug.WriteLine("Circles now spawn every: " + spawnFrequency + "ms");
             updateFrequency();
+            updateShapesInfo();
         }
         public void decreaseFrequency(int howMuch)
         {
@@ -53,13 +59,13 @@ namespace Fati_so_kofa
                 return;
             }
             spawnFrequency+=howMuch;
-            Debug.WriteLine("Circles now spawn every: " + spawnFrequency + "ms");
             updateFrequency();
+            updateShapesInfo();
         }
         public void increaseSpeed(int howMuch)
         {
-            Debug.WriteLine("Speed increase to :" + shapeSpeed);
             shapeSpeed += howMuch;
+            updateShapesInfo();
         }
         public void decreaseSpeed(int howMuch)
         {
@@ -69,6 +75,7 @@ namespace Fati_so_kofa
                 shapeSpeed = 1;
                 return;
             }
+            updateShapesInfo();
         }
         private int pickLine()
         {
@@ -123,6 +130,11 @@ namespace Fati_so_kofa
         private void updateFrequency()
         {
             this.spawnTimer.Interval = spawnFrequency;
+        }
+        private void updateShapesInfo()
+        {
+            shapesSpeedLabel.Text = "Shapes speed: " + shapeSpeed;
+            shapeRespawnLabel.Text = "Shapes spawn every: " + spawnFrequency/1000f +" s";
         }
         public void drawLine(Graphics g)
         {

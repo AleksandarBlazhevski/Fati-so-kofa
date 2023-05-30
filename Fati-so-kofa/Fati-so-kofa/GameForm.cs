@@ -28,7 +28,7 @@ namespace Fati_so_kofa
             this.DoubleBuffered = true;
             
 
-            spawner = new Spawner(tShapeSpawner);
+            spawner = new Spawner(tShapeSpawner, lShapeSpeed, lShapesSpawnRate);
             scoreManager = new ScoreManager(lScore, spawner);
             tShapeMover.Start();
             tPlayerMover.Start();
@@ -105,6 +105,14 @@ namespace Fati_so_kofa
         {
             spawner.MoveAllShapes();
             Invalidate();
+        }
+
+        private void GameForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 'v')
+            {
+                player.changeColor();
+            }
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
