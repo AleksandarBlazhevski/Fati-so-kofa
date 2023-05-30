@@ -29,7 +29,7 @@ namespace Fati_so_kofa
             
 
             spawner = new Spawner(tShapeSpawner);
-            scoreManager = new ScoreManager(lScore);
+            scoreManager = new ScoreManager(lScore, spawner);
             tShapeMover.Start();
             tPlayerMover.Start();
             tShapeSpawner.Start();
@@ -88,14 +88,6 @@ namespace Fati_so_kofa
 
         private void tShapeSpawner_Tick(object sender, EventArgs e)
         {
-            if (scoreManager.timeToSpeedUp())
-            {
-                spawner.increaseSpeed(1);
-            }
-            if (scoreManager.timeToRespawnFaster())
-            {
-                spawner.increaseFrequency(100);
-            }
             spawner.spawnShape();
         }
 

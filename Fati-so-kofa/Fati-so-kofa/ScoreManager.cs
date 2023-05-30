@@ -14,14 +14,15 @@ namespace Fati_so_kofa
         public List<int> previousScores;
         public int topScore;
         private Label lScore;
-        
+        private Spawner spawner;
         private bool speedUp;
 
         private bool RespawnIncrease;
 
 
-        public ScoreManager(Label lScore)
+        public ScoreManager(Label lScore, Spawner spawner)
         {
+            this.spawner = spawner;
             this.lScore = lScore;
             previousScores = new List<int> ();
             topScore = 0;
@@ -37,20 +38,26 @@ namespace Fati_so_kofa
         public void addPoint()
         {
             score++;
-            if(score != 0 && score % 5 == 0 )
+            if(score % 5 == 0 && score % 10 != 0)
             {
-                speedUp = true;
+                spawner.increaseSpeed(1);
             }
-            if(score != 0 && score % 10 == 0)
+            if (score % 10 == 0 && score > 0)
             {
-                RespawnIncrease = true;
+                spawner.increaseFrequency(200);
             }
-
             updateLabel();
         }
         public void removePoint()
         {
-
+            if (score % 5 == 0 && score % 10 != 0)
+            {
+                spawner.decreaseSpeed(1);
+            }
+            if (score % 10 == 0)
+            {
+                spawner.decreaseFrequency(200);
+            }
             score--;
             updateLabel();
         }
@@ -60,24 +67,6 @@ namespace Fati_so_kofa
             lScore.Text = "Score: " + score;
         }
         
-        public bool timeToSpeedUp()
-        {
-            if(speedUp)
-            {
-                speedUp = false;
-                return true;
-            }
-            return false;
-        }
-
-        public bool timeToRespawnFaster()
-        {
-            if (RespawnIncrease)
-            {
-                RespawnIncrease = false;
-                return true;
-            }
-            return false;
-        }
+        
     }
 }

@@ -38,14 +38,22 @@ namespace Fati_so_kofa
         }
         public void increaseFrequency(int howMuch)
         {
-            
+            if(spawnFrequency == 200)
+            {
+                return;
+            }
             spawnFrequency-=howMuch;
-            Debug.WriteLine("Increase circle spawnrate. Circles now spawn every: " + spawnFrequency + "ms");
+            Debug.WriteLine("Circles now spawn every: " + spawnFrequency + "ms");
             updateFrequency();
         }
         public void decreaseFrequency(int howMuch)
         {
+            if(spawnFrequency == 2000)
+            {
+                return;
+            }
             spawnFrequency+=howMuch;
+            Debug.WriteLine("Circles now spawn every: " + spawnFrequency + "ms");
             updateFrequency();
         }
         public void increaseSpeed(int howMuch)
@@ -56,6 +64,11 @@ namespace Fati_so_kofa
         public void decreaseSpeed(int howMuch)
         {
             shapeSpeed -= howMuch;
+            if (shapeSpeed <= 0)
+            {
+                shapeSpeed = 1;
+                return;
+            }
         }
         private int pickLine()
         {
