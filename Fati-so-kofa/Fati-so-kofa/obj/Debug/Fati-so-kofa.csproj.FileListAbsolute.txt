@@ -10,3 +10,4 @@ C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-
 C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.exe
 C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati-so-kofa.pdb
 C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati_so_kofa.GameForm.resources
+C:\Users\alex_\Desktop\Fati-so-kofa\Fati-so-kofa\Fati-so-kofa\obj\Debug\Fati_so_kofa.GameOverForm.resources

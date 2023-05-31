@@ -24,9 +24,9 @@ namespace Fati_so_kofa
         private Random randomLinePicker;
         private Random randomRed;
 
-        private readonly int FirstLine = 30;
-        private readonly int SecoundLine = 170;
-        private readonly int ThirdLine = 330;
+        private readonly int FIRST_LINE = 30;
+        private readonly int SECOUND_LINE = 170;
+        private readonly int THIRD_LINE = 330;
 
         public Spawner(Timer spawnTimer, Label shapesSpeedLabel, Label shapeRespawnLabel)
         {
@@ -83,13 +83,13 @@ namespace Fati_so_kofa
             switch (line)
             {
                 case 0:
-                    return FirstLine;
+                    return FIRST_LINE;
                 case 1:
-                    return SecoundLine;
+                    return SECOUND_LINE;
                 case 2:
-                    return ThirdLine;
+                    return THIRD_LINE;
                 default:
-                    return SecoundLine;
+                    return SECOUND_LINE;
             }
         }
         private Shape pickShape()
@@ -145,6 +145,7 @@ namespace Fati_so_kofa
         //Remove circles colored white or below window
         public void removeDestroyed()
         {
+
             ShapesList.RemoveAll(r => r.Color == Color.White || r.Center.Y >= 650);
         }
     }

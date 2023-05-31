@@ -22,14 +22,14 @@ namespace Fati_so_kofa
         private ScoreManager scoreManager;
         Player player = new Player(new Point(170, 500), Color.Blue, 10, 40);
         
-        public GameForm()
+        public GameForm(int lastHighScore)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             
 
             spawner = new Spawner(tShapeSpawner, lShapeSpeed, lShapesSpawnRate);
-            scoreManager = new ScoreManager(lScore, spawner);
+            scoreManager = new ScoreManager(lScore, spawner, lLifes, lConsMisses, lastHighScore);
             tShapeMover.Start();
             tPlayerMover.Start();
             tShapeSpawner.Start();
@@ -50,7 +50,19 @@ namespace Fati_so_kofa
                 pressedRight = false;
             }
 
+        }
 
+        private bool isLost()
+        {
+            if(scoreManager.Lifes <= 0)
+            {
+                return true;
+            }
+            if(scoreManager.ConsecutiveMisses >= 10)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void tPlayerMover_Tick(object sender, EventArgs e)
@@ -63,6 +75,7 @@ namespace Fati_so_kofa
                     {
                         scoreManager.addPoint();
                         player.changeColor();
+                        scoreManager.resetConsecMisses();
                     }
                     else
                     {
@@ -72,6 +85,11 @@ namespace Fati_so_kofa
                     
                 }
             }
+            if(spawner.ShapesList.FindAll(r => r.Center.Y >= 650).Any<Shape>())
+            {
+                scoreManager.incMissedCircles();
+            }
+
             spawner.removeDestroyed();
 
             if (pressedLeft && player.Postiion.X > 0)
@@ -84,6 +102,18 @@ namespace Fati_so_kofa
             }
 
             Invalidate();
+            if (isLost())
+            {
+                tShapeMover.Stop();
+                tPlayerMover.Stop();
+                tShapeSpawner.Stop();
+                scoreManager.updateScores();
+                GameOverForm gameOverForm = new GameOverForm(scoreManager.score, scoreManager.topScore);
+                if(gameOverForm.ShowDialog() == DialogResult.OK)
+                {
+                    DialogResult = DialogResult.OK;
+                }
+            }
         }
 
         private void tShapeSpawner_Tick(object sender, EventArgs e)
@@ -125,6 +155,10 @@ namespace Fati_so_kofa
             {
                 pressedRight = true;
             }
+        }
+        public int getData()
+        {
+            return scoreManager.score;
         }
     }
 }

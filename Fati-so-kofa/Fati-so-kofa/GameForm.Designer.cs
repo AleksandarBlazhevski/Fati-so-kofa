@@ -34,9 +34,13 @@
             this.tShapeSpawner = new System.Windows.Forms.Timer(this.components);
             this.lScore = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lShapeSpeed = new System.Windows.Forms.Label();
             this.lShapesSpawnRate = new System.Windows.Forms.Label();
+            this.lShapeSpeed = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lConsMisses = new System.Windows.Forms.Label();
+            this.lLifes = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tShapeMover
@@ -75,15 +79,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shapes info";
             // 
-            // lShapeSpeed
-            // 
-            this.lShapeSpeed.AutoSize = true;
-            this.lShapeSpeed.Location = new System.Drawing.Point(6, 26);
-            this.lShapeSpeed.Name = "lShapeSpeed";
-            this.lShapeSpeed.Size = new System.Drawing.Size(87, 13);
-            this.lShapeSpeed.TabIndex = 2;
-            this.lShapeSpeed.Text = "Shapes speed: 0";
-            // 
             // lShapesSpawnRate
             // 
             this.lShapesSpawnRate.AutoSize = true;
@@ -93,11 +88,53 @@
             this.lShapesSpawnRate.TabIndex = 3;
             this.lShapesSpawnRate.Text = "Shapes spawn every: 0 ms";
             // 
+            // lShapeSpeed
+            // 
+            this.lShapeSpeed.AutoSize = true;
+            this.lShapeSpeed.Location = new System.Drawing.Point(6, 26);
+            this.lShapeSpeed.Name = "lShapeSpeed";
+            this.lShapeSpeed.Size = new System.Drawing.Size(87, 13);
+            this.lShapeSpeed.TabIndex = 2;
+            this.lShapeSpeed.Text = "Shapes speed: 0";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lConsMisses);
+            this.groupBox2.Controls.Add(this.lLifes);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(403, 498);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(169, 101);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Life and misses";
+            // 
+            // lConsMisses
+            // 
+            this.lConsMisses.AutoSize = true;
+            this.lConsMisses.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lConsMisses.Location = new System.Drawing.Point(6, 64);
+            this.lConsMisses.Name = "lConsMisses";
+            this.lConsMisses.Size = new System.Drawing.Size(148, 17);
+            this.lConsMisses.TabIndex = 3;
+            this.lConsMisses.Text = "Consecutive misses: 0";
+            // 
+            // lLifes
+            // 
+            this.lLifes.AutoSize = true;
+            this.lLifes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lLifes.Location = new System.Drawing.Point(6, 37);
+            this.lLifes.Name = "lLifes";
+            this.lLifes.Size = new System.Drawing.Size(120, 17);
+            this.lLifes.TabIndex = 2;
+            this.lLifes.Text = "Lifes remaining: 3";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 611);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lScore);
             this.Name = "GameForm";
@@ -108,6 +145,8 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +161,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lShapesSpawnRate;
         private System.Windows.Forms.Label lShapeSpeed;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lConsMisses;
+        private System.Windows.Forms.Label lLifes;
     }
 }

@@ -11,30 +11,40 @@ namespace Fati_so_kofa
     public class ScoreManager
     {
         public int score;
-        public List<int> previousScores;
         public int topScore;
         private Label lScore;
+        private Label lLifes;
+        private Label lConsMisses;
         private Spawner spawner;
-        private bool speedUp;
 
-        private bool RespawnIncrease;
+        public int ConsecutiveMisses { get; private set; }
+        public int Lifes { get; private set; }
 
-
-        public ScoreManager(Label lScore, Spawner spawner)
+        public ScoreManager(Label lScore, Spawner spawner, Label lLifes, Label lConsMisses, int lastHighScore)
         {
             this.spawner = spawner;
             this.lScore = lScore;
-            previousScores = new List<int> ();
-            topScore = 0;
+            this.lLifes = lLifes;
+            this.lConsMisses = lConsMisses;
+            topScore = lastHighScore;
             score = 0;
-
-
-            speedUp = false;
-
-
-            RespawnIncrease = false;
+            Lifes = 3;
+            ConsecutiveMisses = 0;
         }
-
+        public void updateScores()
+        {
+            topScore = score >= topScore ? score : topScore;
+        }
+        public void incMissedCircles()
+        {
+            ConsecutiveMisses++;
+            updateLabel();
+        }
+        public void resetConsecMisses()
+        {
+            ConsecutiveMisses = 0;
+            updateLabel();
+        }
         public void addPoint()
         {
             score++;
@@ -59,12 +69,16 @@ namespace Fati_so_kofa
                 spawner.decreaseFrequency(200);
             }
             score--;
+            //Reduce remaining lifes
+            Lifes--;
             updateLabel();
         }
 
         public void updateLabel()
         {
             lScore.Text = "Score: " + score;
+            lLifes.Text = "Lifes remaining: " + Lifes;
+            lConsMisses.Text = "Consecutive misses: " + ConsecutiveMisses;
         }
         
         
