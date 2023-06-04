@@ -26,10 +26,19 @@ namespace Fati_so_kofa
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            
+
+            pbShapesSpeed.Maximum = 5;
+            pbShapesSpeed.Minimum = 1;
+            pbShapesSpeed.Step = 1;
+
+            pbShapesSpawnRate.Maximum = 10;
+            pbShapesSpawnRate.Minimum = 1;
+            pbShapesSpawnRate.Step = 1;
+
+
 
             spawner = new Spawner(tShapeSpawner, lShapeSpeed, lShapesSpawnRate);
-            scoreManager = new ScoreManager(lScore, spawner, lLifes, lConsMisses, lastHighScore);
+            scoreManager = new ScoreManager(lScore, spawner, lLifes, lConsMisses, lastHighScore, pbShapesSpeed, pbShapesSpawnRate);
             tShapeMover.Start();
             tPlayerMover.Start();
             tShapeSpawner.Start();

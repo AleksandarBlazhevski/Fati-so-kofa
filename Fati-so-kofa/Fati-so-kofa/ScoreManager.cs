@@ -16,16 +16,20 @@ namespace Fati_so_kofa
         private Label lLifes;
         private Label lConsMisses;
         private Spawner spawner;
+        private ProgressBar pbShapesSpeed;
+        private ProgressBar pbShapesSpawnRate;
 
         public int ConsecutiveMisses { get; private set; }
         public int Lifes { get; private set; }
 
-        public ScoreManager(Label lScore, Spawner spawner, Label lLifes, Label lConsMisses, int lastHighScore)
+        public ScoreManager(Label lScore, Spawner spawner, Label lLifes, Label lConsMisses, int lastHighScore, ProgressBar pbShapesSpeed, ProgressBar pbShapesSpawnRate)
         {
             this.spawner = spawner;
             this.lScore = lScore;
             this.lLifes = lLifes;
             this.lConsMisses = lConsMisses;
+            this.pbShapesSpeed = pbShapesSpeed;
+            this.pbShapesSpawnRate = pbShapesSpawnRate;
             topScore = lastHighScore;
             score = 0;
             Lifes = 3;
@@ -48,7 +52,9 @@ namespace Fati_so_kofa
         public void addPoint()
         {
             score++;
-            if(score % 5 == 0 && score % 10 != 0)
+            pbShapesSpeed.Value = pbShapesSpeed.Value == 5 ? 1 : pbShapesSpeed.Value + 1;
+            pbShapesSpawnRate.Value = pbShapesSpawnRate.Value == 10 ? 1 : pbShapesSpawnRate.Value + 1;
+            if (score % 5 == 0 && score % 10 != 0)
             {
                 spawner.increaseSpeed(1);
             }
@@ -60,6 +66,8 @@ namespace Fati_so_kofa
         }
         public void removePoint()
         {
+            pbShapesSpeed.Value = pbShapesSpeed.Value == 1 ? 5 : pbShapesSpeed.Value - 1;
+            pbShapesSpawnRate.Value = pbShapesSpawnRate.Value == 1 ? 10 : pbShapesSpawnRate.Value - 1;
             if (score % 5 == 0 && score % 10 != 0)
             {
                 spawner.decreaseSpeed(1);
