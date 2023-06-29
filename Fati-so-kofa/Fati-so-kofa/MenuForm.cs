@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Fati_so_kofa
 {
-    public partial class Form1 : Form
+    public partial class MenuForm : Form
     {
         private ListView lvScore;
         private List<int> scoreList;
-        public Form1()
+        public MenuForm()
         {
             InitializeComponent();
             lvScore = lvScores;

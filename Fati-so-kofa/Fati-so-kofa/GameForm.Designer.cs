@@ -79,7 +79,7 @@
             this.groupBox1.Controls.Add(this.lShapeSpeed);
             this.groupBox1.Location = new System.Drawing.Point(403, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(169, 177);
+            this.groupBox1.Size = new System.Drawing.Size(169, 130);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shapes info";
@@ -140,9 +140,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(399, 462);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 20);
+            this.label1.Size = new System.Drawing.Size(177, 20);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Press \'v\' to change color";
+            this.label1.Text = "Press V to change color";
             // 
             // pbShapesSpeed
             // 

@@ -8,14 +8,20 @@ using System.Windows.Forms;
 
 namespace Fati_so_kofa.Shapes.Circle
 {
-    
+    /// <summary>
+    /// Represents the basic attributes needed for circle
+    /// </summary>
     public abstract class Circle : Shape
     {
-        //Center point, circle color, movement speed, circle radius
         public Circle(Point center, int speed, int size, int redLine) : base(center, speed, size, redLine)
         {
         }
-
+        /// <summary>
+        /// Checks for collision with the player
+        /// </summary>
+        /// <param name="playerCenter">Player posion</param>
+        /// <param name="playerSize">Player widht and height</param>
+        /// <returns>Returns true if collides with the player or false if not</returns>
         public override bool isHit(Point playerCenter, int playerSize)
         {
             float distanceX = Math.Abs(Center.X - playerCenter.X);

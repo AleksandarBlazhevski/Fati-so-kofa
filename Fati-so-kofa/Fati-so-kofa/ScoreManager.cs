@@ -8,18 +8,50 @@ using System.Windows.Forms;
 
 namespace Fati_so_kofa
 {
+    /// <summary>
+    /// Handles the player score and displays it 
+    /// </summary>
     public class ScoreManager
     {
+        /// <summary>
+        /// Stores the score as integer
+        /// </summary>
         public int score;
+        /// <summary>
+        /// Stores the highest score until present
+        /// </summary>
         public int topScore;
+        /// <summary>
+        /// Label for the live score
+        /// </summary>
         private Label lScore;
+        /// <summary>
+        /// Label for remaining lifes
+        /// </summary>
         private Label lLifes;
+        /// <summary>
+        /// Label for consecutive circle misses
+        /// </summary>
         private Label lConsMisses;
+        /// <summary>
+        /// Instance of the class spawner
+        /// </summary>
         private Spawner spawner;
+        /// <summary>
+        /// Progress bar for the shapes speed
+        /// </summary>
         private ProgressBar pbShapesSpeed;
+        /// <summary>
+        /// Progress bar for the shapes spawn rate
+        /// </summary>
         private ProgressBar pbShapesSpawnRate;
-
+        /// <summary>
+        /// Stores the consecutive missses as integer
+        /// </summary>
         public int ConsecutiveMisses { get; private set; }
+        /// <summary>
+        /// Stores remaining lifes as integer
+        /// </summary>
         public int Lifes { get; private set; }
 
         public ScoreManager(Label lScore, Spawner spawner, Label lLifes, Label lConsMisses, int lastHighScore, ProgressBar pbShapesSpeed, ProgressBar pbShapesSpawnRate)
@@ -35,20 +67,32 @@ namespace Fati_so_kofa
             Lifes = 3;
             ConsecutiveMisses = 0;
         }
+        /// <summary>
+        /// Sets the highest score as current score or previous high score
+        /// </summary>
         public void updateScores()
         {
             topScore = score >= topScore ? score : topScore;
         }
+        /// <summary>
+        /// Increments consecutive misses
+        /// </summary>
         public void incMissedCircles()
         {
             ConsecutiveMisses++;
             updateLabel();
         }
+        /// <summary>
+        /// Sets consecutive misses to 0
+        /// </summary>
         public void resetConsecMisses()
         {
             ConsecutiveMisses = 0;
             updateLabel();
         }
+        /// <summary>
+        /// Increments score and updates the values of all progress bars and the score label
+        /// </summary>
         public void addPoint()
         {
             score++;
@@ -64,6 +108,9 @@ namespace Fati_so_kofa
             }
             updateLabel();
         }
+        /// <summary>
+        /// Decrements score ,lifes and updates the values of all progress bars and the score label
+        /// </summary>
         public void removePoint()
         {
             pbShapesSpeed.Value = pbShapesSpeed.Value == 1 ? 5 : pbShapesSpeed.Value - 1;
@@ -81,7 +128,9 @@ namespace Fati_so_kofa
             Lifes--;
             updateLabel();
         }
-
+        /// <summary>
+        /// Updates the display labels to proper values
+        /// </summary>
         public void updateLabel()
         {
             lScore.Text = "Score: " + score;

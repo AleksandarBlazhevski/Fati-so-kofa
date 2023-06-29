@@ -1,6 +1,6 @@
 ﻿namespace Fati_so_kofa
 {
-    partial class Form1
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -87,9 +87,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(6, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 20);
+            this.label4.Size = new System.Drawing.Size(168, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "v - Change bucket color";
+            this.label4.Text = "v - Rotate bucket color";
             // 
             // label3
             // 
