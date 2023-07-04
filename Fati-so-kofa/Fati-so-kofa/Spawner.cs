@@ -111,15 +111,7 @@ namespace Fati_so_kofa
             updateShapesInfo();
         }
         /// <summary>
-<<<<<<< HEAD
-        /// Increases the speed of shapes
-=======
-<<<<<<< HEAD
         /// Decreases the speed of shapes
-=======
-        /// Increases the speed of shapes
->>>>>>> d242a9540e760fbd9bccf6a67c5f4ddfb6253c9a
->>>>>>> 93158a0 (Finished documentation)
         /// </summary>
         /// <param name="howMuch"></param>
         public void decreaseSpeed(int howMuch)

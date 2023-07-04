@@ -11,15 +11,10 @@ using System.Windows.Forms;
 
 namespace Fati_so_kofa
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     /// <summary>
     /// Menu form responsible for displaying high scores and to start the game
     /// </summary>
-=======
->>>>>>> d242a9540e760fbd9bccf6a67c5f4ddfb6253c9a
->>>>>>> 93158a0 (Finished documentation)
     public partial class MenuForm : Form
     {
         /// <summary>
