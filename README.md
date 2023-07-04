@@ -39,7 +39,8 @@
 
 ##3 Решавање на проблемот
 ---
-![Game structure](https://github.com/AleksandarBlazhevski/Fati-so-kofa/blob/master/Fati-so-kofa/Fati-so-kofa/Preview/Game%20structure.png?raw=true)<br/>
+![Game structure](https://github.com/AleksandarBlazhevski/Fati-so-kofa/blob/master/Fati-so-kofa/Fati-so-kofa/Preview/Game%20stucture.png?raw=true)<br/>
+
 Од абстракната класа Shape наследува Circle и од неа наследуваат RedCircle, BlueCircle, GreenCricle.<br/>
 Во класата Spawner се чува листа од Shape која е задолжена за додавање на нови случајно избрани облици во формата за играње. Истата е задолжена за цртанје, движење и уништување на облиците.<br/>
 За справување на поените е задолжена класата ScoreManager. Во неа се чуваат поените и истите се прикажуваат кога ќе има промена. Кога поените ќе поминат одредена вредност, класата ги повикува методите за иземнување на својствата на облиците. <br/>
